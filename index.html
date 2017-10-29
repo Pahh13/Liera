@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+   <style>
+   body {
+    background: #000;
+   }
+   </style>
+  </head>
+
+
+  <body>
+ 
+  <div class="col-md-12 text-center">
+    <h3>Projeto aurora</h3>
+    <button class="btn-primary" onclick="rodarDados()">Jogar os dados</button>
+  </div>
+  
+  <br><br><br><br>
+
+  <div class="jumbotron" style="background: #fff;">
+  <div class="container">
+  
+  <div class="row text-center">
+    <div class="col-md-4">
+      <img id="img1" src="img/dice1.png">
+    </div>
+
+      <div class="col-md-4">
+        <img id="img2" src="img/dice2.png">
+      </div>
+
+    <div class="col-md-4">
+      <img id="img3" src="img/dice3.png">
+    </div>
+  </div>
+  
+  <br><br><br><br>
+  
+  <div class="row text-center">
+    <div class="col-md-4">
+      <img id="img4" src="img/dice4.png">
+    </div>
+
+      <div class="col-md-4">
+        <img id="img5" src="img/dice5.png">
+      </div>
+
+    <div class="col-md-4">
+      <img id="img6" src="img/dice6.png">
+    </div>
+  </div>
+
+  </div>
+  </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    
+    function rodarDados(){
+        for (i = 1; i < 7; i++) {
+
+          var x = Math.floor((Math.random() * 6) + 1);
+          var img = document.getElementById('img'+i);
+          img.setAttribute('src', 'img/dice'+x+'.png');
+          img.setAttribute("valor", ''+x+'');
+
+        }
+    }
+
+    </script>
+
+  </body>
+</html>
