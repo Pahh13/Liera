@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,36 +29,55 @@
   <div class="container">
   
   <div class="row text-center">
-    <div class="col-md-4">
-      <img id="img1" src="img/dice1.png">
+  <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <img id="img1" src="Liera/img/dice1.png" val="1">
     </div>
 
-      <div class="col-md-4">
-        <img id="img2" src="img/dice2.png">
+      <div class="col-md-2">
+        <img id="img2" src="Liera/dice2.png" val="2">
       </div>
 
-    <div class="col-md-4">
-      <img id="img3" src="img/dice3.png">
+    <div class="col-md-2">
+      <img id="img3" src="Liera/dice3.png" val="3">
+    </div>
+
+    <div class="col-md-2">
+      <img id="img4" src="Liera/dice4.png" val="4">
+    </div>
+
+    <div class="col-md-2">
+      <img id="img5" src="Liera/dice5.png" val="5">
     </div>
   </div>
   
   <br><br><br><br>
   
-  <div class="row text-center">
-    <div class="col-md-4">
-      <img id="img4" src="img/dice4.png">
-    </div>
-
-      <div class="col-md-4">
-        <img id="img5" src="img/dice5.png">
-      </div>
-
-    <div class="col-md-4">
-      <img id="img6" src="img/dice6.png">
-    </div>
+  </div>
   </div>
 
+  <div class="col-md-4 col-md-offset-4">
+    <select class="form-control" id="categoria" onchange="verificaCategoria(this.value)">
+      <option value="default">Categorias de pontuação</option>
+      <option value="1">Uns</option>
+      <option value="2">Dois</option>
+      <option value="3">Três</option>
+      <option value="4">Quatros</option>
+      <option value="5">Cincos</option>
+      <option value="6">Seis</option>
+      <option value="0">Par</option>
+      <option value="0">Dois Pares</option>
+      <option value="0">Trio</option>
+      <option value="0">Quadra</option>
+      <option value="0">Sequencia Menor</option>
+      <option value="0">Sequencia Maior</option>
+      <option value="0">Full House</option>
+      <option value="0">Aurora</option>
+    </select>
   </div>
+  <br><br><br>
+  <div class="col-md-4 col-md-offset-4">
+    <input class="form-control" type="text" id="resultado" placeholder="Sua Pontuação:">
   </div>
 
 
@@ -71,14 +90,46 @@
     <script type="text/javascript">
     
     function rodarDados(){
-        for (i = 1; i < 7; i++) {
+    
+    document.getElementById("resultado").value = "";
+    document.getElementById("categoria").value = "default";
+
+        for (i = 1; i < 6; i++) {
 
           var x = Math.floor((Math.random() * 6) + 1);
           var img = document.getElementById('img'+i);
-          img.setAttribute('src', 'img/dice'+x+'.png');
-          img.setAttribute("valor", ''+x+'');
+          img.setAttribute('src', 'Liera/img/dice'+x+'.png');
+          img.setAttribute("val", ''+x+'');
 
         }
+    }
+
+    function verificaCategoria(valor){
+      
+      if(valor > 0 && valor < 7){
+        pontuarSomaUnitaria(valor);
+      }else{
+        alert('fora de cogitação');
+      }
+
+    }
+
+    function pontuarSomaUnitaria(valor){
+
+      var multiplicador = 0;
+
+      for (i = 1; i < 6; i++) {
+      
+      var img = document.getElementById('img'+i).getAttribute('val');
+
+      if(img == valor){
+        multiplicador++;
+      }
+
+      }
+
+      document.getElementById("resultado").value = multiplicador*valor;
+          
     }
 
     </script>
