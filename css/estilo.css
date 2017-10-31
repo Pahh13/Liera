@@ -1,0 +1,17 @@
+   body {
+    background: #000;
+   }
+   
+   h3 {
+    color: #fff;
+   }
+   
+   .jumbotron {
+    background: #fff;
+    padding-top: 8%;
+    padding-bottom: 8%;
+   }
+
+   .jumbotron img {
+    height: 130px;
+   }
